@@ -1,0 +1,30 @@
+#Binary Search in python
+
+#Algorithm
+Divide and conquer
+1) first initially assign the low and high of length of the arr
+2) condition check low is less than high 
+3) find the mid value position
+4) array of mid is the our searching then return else array of mid value is less than the searching element low position move into mid+1 
+else array of mid value is greater than the searching element high position move into mid-1
+5) else return -1
+
+#Complexity
+Time : O(log(n))
+Space : O(1)
+
+def binarySearch(arr,x):
+    low=0
+    high=len(arr)
+    while low <= high:
+        mid = low + (high - low) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+arr=list(map(int,input().split()))
+x=int(input())
+print(binarySearch(arr,x))
